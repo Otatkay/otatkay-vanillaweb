@@ -35,6 +35,13 @@ jobs:
         path: target/site/surefire-report.html
       # Use always() to always run this step to publish test results when there are test failures
       if: ${{ always() }}
+    - name: Upload Coverage Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: Coverage-Report
+        path: target/site/jacoco/
+      # Use always() to always run this step to publish test results when there are test failures
+      if: ${{ always() }}
     - name: Generate JaCoCo Badge
       uses: cicirello/jacoco-badge-generator@v2
       with:

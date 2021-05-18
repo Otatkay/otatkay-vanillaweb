@@ -1,20 +1,20 @@
 package com.otatkay.vanillaweb.app;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.BeforeClass;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-public class VanillalizerTest  {
-    @BeforeClass 
-    public static void BeforeClass() {
+class VanillalizerTest {
+    @BeforeAll 
+    static void BeforeClass() {
         //loading of properties is needed in any case, even for standalone execution
         VanillApp.start();
     }
 
     @Test
-    public void testLoadProperties() {
-        Assert.assertNotNull("Assert Application name", VanillApp.getAppProperty("app.name"));
-        Assert.assertNotNull("Assert application locale", VanillApp.getAppProperty("app.locale"));
+    void testLoadProperties() {
+        assertNotNull("Assert Application name", VanillApp.getAppProperty("app.name"));
+        assertNotNull("Assert application locale", VanillApp.getAppProperty("app.locale"));
     }
 
 }
