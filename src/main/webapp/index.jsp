@@ -1,7 +1,7 @@
 <%@ page info="Vanillaweb Main Page"%>
 <%@ page import="com.otatkay.vanillaweb.controler.IndexPageControler" %>
 
-<% IndexPageControler pageControl = new IndexPageControler() %>
+<% IndexPageControler pageControl = new IndexPageControler(); %>
 <html>
 <body>
 <h1>Vanilla Vanilla !</h1>
