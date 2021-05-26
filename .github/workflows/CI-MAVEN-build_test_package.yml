@@ -5,11 +5,11 @@ name: VanillaWeb CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, development ]
     paths-ignore:
       - 'doc/**'
   pull_request:
-    branches: [ master ]
+    branches: [ master, development ]
     paths-ignore:
       - 'doc/**'
 
