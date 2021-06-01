@@ -24,16 +24,12 @@ public enum Flavor {
         switch (this) {
             case VANILLA:
                 return "Best Taste Ever!";
-            case CHOCOLATE:
-            case RASPBERRY:
-            case BLUEBERRY:
-                return "Sweet !";
             case PEPPERMINT:
                 return "Fresh !";
             case WASABI:
                 return "So Hot !";     
             default:
-                return "Nothing";
+                return "Sweet !";
         }
     }
 }

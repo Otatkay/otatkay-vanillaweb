@@ -7,6 +7,14 @@ import org.junit.jupiter.api.Test;
 class RandomGeneratorTest {
 
     @Test
+    void testRandomGenerator() {
+        RandomGenerator aRandom = new RandomGenerator();
+        int randomNumber = aRandom.getRandomNumber(10);
+        assertTrue(-1<randomNumber , "Random Number should be positive or equals to 0");
+        assertTrue(10>randomNumber , "Random number should be less than limit");
+    }
+
+    @Test
     void testGetRandomNumber() {
         int randomNumber = RandomGenerator.getRandomNumber(10);
         assertTrue(-1<randomNumber , "Random Number should be positive or equals to 0");

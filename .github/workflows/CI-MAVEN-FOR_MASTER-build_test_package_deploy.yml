@@ -1,0 +1,74 @@
+# This workflow will build a Java project with Maven, runs Tests anc Coverage and deploys on Azure
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+# Docs for the Azure Web Apps Deploy action: https://go.microsoft.com/fwlink/?linkid=2134798
+# More GitHub Actions for Azure: https://go.microsoft.com/fwlink/?linkid=2135048
+
+name: Azure App Service - VanillaWeb CI with Maven
+
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - 'doc/**'
+  pull_request:
+    branches: [ master ]
+    paths-ignore:
+      - 'doc/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
+    - name: Generate Test Report
+      run: mvn surefire-report:report  
+
+    - name: Upload Junit Test Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: JUnitTests-Report
+        path: target/site/surefire-report.html
+      # Use always() to always run this step to publish test results when there are test failures
+      if: ${{ always() }}
+
+    - name: Generate JaCoCo Badge
+      id: jacoco
+      uses: cicirello/jacoco-badge-generator@v2
+      with:
+        generate-branches-badge: true
+
+    - name: Log coverage percentage
+      run: |
+        echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
+        echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"
+
+    - name: Commit and push the badge (if it changed)
+      uses: EndBug/add-and-commit@v7
+      with:
+        default_author: github_actions
+        message: 'commit jacoco badge'
+        add: '*.svg'
+
+    - name: Upload JaCoCo coverage report
+      uses: actions/upload-artifact@v2
+      with:
+        name: jacoco-coverage-report
+        path: target/site/jacoco/
+    
+    - name: Run Azure webapp deploy action using publish profile credentials
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: otatkay-vanillaweb-webapp
+        slot-name: Production
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1A9BD31DB12C4AB0BBFA4AA73334F3C9 }}
+        package: ${{ github.workspace }}/target/*.war
+        

@@ -22,11 +22,11 @@ public final class Vanillalizer {
             loadedProperties.load(appPropertyFile);
             appPropertyFile.close();
         }
-        catch (FileNotFoundException e) {
-            throw new InitializationException("Ressource not found:" + propertyFileName, e);
-        } catch (IOException ioe) {
+        catch (IOException ioe) {
             throw new InitializationException("Error when reading:" + propertyFileName, ioe);
-        }
+        } catch (Exception e) {
+            throw new InitializationException("Ressource not found:" + propertyFileName, e);
+        } 
         return loadedProperties;
     }
 
