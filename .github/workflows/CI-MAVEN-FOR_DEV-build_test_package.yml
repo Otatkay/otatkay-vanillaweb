@@ -5,11 +5,19 @@ name: VanillaWeb CI with Maven
 
 on:
   push:
-    branches: [ master, development ]
+    branches:    
+      - '*'         # matches every branch that doesn't contain a '/'
+      - '*/*'       # matches every branch containing a single '/'
+      - '**'        # matches every branch
+      - '!master'   # excludes master
     paths-ignore:
       - 'doc/**'
   pull_request:
-    branches: [ master, development ]
+    branches:  
+      - '*'         # matches every branch that doesn't contain a '/'
+      - '*/*'       # matches every branch containing a single '/'
+      - '**'        # matches every branch
+      - '!master'   # excludes master
     paths-ignore:
       - 'doc/**'
 
