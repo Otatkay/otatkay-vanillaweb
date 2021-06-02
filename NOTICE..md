@@ -1,2 +1,0 @@
-Notices and attributions required by libraries that the project depends on
-
