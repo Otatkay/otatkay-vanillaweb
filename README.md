@@ -1,6 +1,11 @@
+[![Header](https://raw.githubusercontent.com/Otatkay/Otatkay/main/otatkay-vanillaweb.png "Header")](https://github.com/Otatkay)
 # otatkay-vanillaweb
 ## :eyes: Readme
 This package contains a Funny project of web application.
+
+![Java](https://img.shields.io/badge/-java-CC2927?style=flat-square&logo=java)
+![GitHub](https://img.shields.io/badge/-GitHub-181717?style=flat-square&logo=github)
+![Microsoft Azure](https://img.shields.io/badge/Microsoft%20Azure-232F7E?style=flat-square&logo=microsoft-azure)
 
 :dart: Goals :
 * Versionning and CI/CD on GitHub
@@ -17,7 +22,4 @@ This package contains a Funny project of web application.
 * :thumbsup: [Thylacine: "Lockdown Session"](https://www.youtube.com/watch?v=P7mc725w7bM)
 * :thumbsup: [Tash Sultana: "Mystik" and all songs from "Flow State" album](https://www.youtube.com/watch?v=1g9dnmQ4uwU)
 
-:sparkling_heart: My (Lockdown) hobbies 
-* :guitar: Guitar (Never played so much time than now)
-* :weight_lifting: Home Fitness (to be prepared for future climbing session! :sunrise_over_mountains:)
-* :game_die: Board Games (and remotely with friends, thanks to [Board Game Arena](https://boardgamearena.com/) )
+
