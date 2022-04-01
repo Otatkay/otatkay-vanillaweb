@@ -1,4 +1,4 @@
-[![Header](https://raw.githubusercontent.com/Otatkay/Otatkay/main/otatkay-vanillaweb.png "Header")](https://github.com/Otatkay)
+![otatkay-vanillaweb](https://raw.githubusercontent.com/Otatkay/Otatkay/main/otatkay-vanillaweb.png "Header")
 # otatkay-vanillaweb
 ## :eyes: Readme
 This package contains a Funny project of web application.
